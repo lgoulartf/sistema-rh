@@ -82,6 +82,13 @@ namespace SistemaRHDesktop
             if (listView1.SelectedItems.Count == 1)
             {
                 FuncionarioSalarioSelecionado = listView1.SelectedItems[0].Tag as FuncionarioSalario;
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+            }
+            else
+            {
+                btnEditar.Enabled = false;
+                btnExcluir.Enabled = false;
             }
         }
 

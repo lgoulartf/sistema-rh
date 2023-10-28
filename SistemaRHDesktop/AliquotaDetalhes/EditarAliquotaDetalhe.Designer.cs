@@ -120,7 +120,7 @@
             Controls.Add(btnSalvar);
             Controls.Add(label1);
             Name = "EditarAliquotaDetalhe";
-            Text = "EditarAliquotaDetalhe";
+            Text = "Editar detalhe da alíquota";
             Load += EditarAliquotaDetalhe_Load;
             ResumeLayout(false);
             PerformLayout();

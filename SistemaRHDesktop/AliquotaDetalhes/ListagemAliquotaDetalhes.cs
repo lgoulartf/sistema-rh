@@ -73,6 +73,12 @@ namespace SistemaRHDesktop.AliquotaDetalhes
             if (listView1.SelectedItems.Count == 1)
             {
                 AliquotaDetalheSelecionado = listView1.SelectedItems[0].Tag as AliquotaDetalhe;
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+            } else
+            {
+                btnEditar.Enabled = false;
+                btnExcluir.Enabled = false;
             }
         }
 

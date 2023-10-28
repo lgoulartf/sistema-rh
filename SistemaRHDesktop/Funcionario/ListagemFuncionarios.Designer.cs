@@ -56,6 +56,7 @@
             // 
             // btnExcluir
             // 
+            btnExcluir.Enabled = false;
             btnExcluir.Location = new Point(529, 26);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(75, 23);
@@ -66,6 +67,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Enabled = false;
             btnEditar.Location = new Point(448, 26);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
@@ -95,7 +97,7 @@
             Controls.Add(listView1);
             Controls.Add(label1);
             Name = "ListagemFuncionarios";
-            Text = "ListagemFuncionarios";
+            Text = "Listagem de funcionários";
             Load += ListagemFuncionarios_Load;
             ResumeLayout(false);
             PerformLayout();

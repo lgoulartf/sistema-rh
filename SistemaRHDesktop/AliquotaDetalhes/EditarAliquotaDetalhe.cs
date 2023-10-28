@@ -40,13 +40,13 @@ namespace SistemaRHDesktop.AliquotaDetalhes
         {
             decimal baseCalculo;
             decimal.TryParse(txtBaseCalculo.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out baseCalculo);
-            
+
             float porcentagem;
             float.TryParse(txtPorcentagem.Text, NumberStyles.Currency, CultureInfo.CurrentCulture, out porcentagem);
 
             AliquotaDetalhe.Porcentagem = porcentagem;
             AliquotaDetalhe.BaseCalculo = baseCalculo;
-            
+
             var data = JsonConvert.SerializeObject(AliquotaDetalhe);
 
             var api = new Api();

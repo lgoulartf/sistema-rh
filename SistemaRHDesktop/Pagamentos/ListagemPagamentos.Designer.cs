@@ -90,7 +90,7 @@
             Controls.Add(listView1);
             Controls.Add(label1);
             Name = "ListagemPagamentos";
-            Text = "ListagemPagamentos";
+            Text = "Listagem de pagamentos";
             Load += ListagemPagamentos_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -47,6 +47,7 @@
             // 
             // btnExcluir
             // 
+            btnExcluir.Enabled = false;
             btnExcluir.Location = new Point(626, 25);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(75, 23);
@@ -66,6 +67,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Enabled = false;
             btnEditar.Location = new Point(545, 25);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
@@ -95,7 +97,7 @@
             Controls.Add(btnExcluir);
             Controls.Add(label1);
             Name = "ListagemFuncionarioSalarios";
-            Text = "ListagemFuncionarioSalarios";
+            Text = "Listagem de salários";
             Load += ListagemFuncionarioSalarios_Load;
             ResumeLayout(false);
             PerformLayout();

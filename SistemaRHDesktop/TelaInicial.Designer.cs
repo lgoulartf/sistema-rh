@@ -102,7 +102,7 @@
             // 
             gerarPagamentosToolStripMenuItem.Name = "gerarPagamentosToolStripMenuItem";
             gerarPagamentosToolStripMenuItem.Size = new Size(180, 22);
-            gerarPagamentosToolStripMenuItem.Text = "Gerar pagamentos";
+            gerarPagamentosToolStripMenuItem.Text = "Listagem";
             gerarPagamentosToolStripMenuItem.Click += gerarPagamentosToolStripMenuItem_Click;
             // 
             // TelaInicial
@@ -113,7 +113,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "TelaInicial";
-            Text = "Form1";
+            Text = "Tela inicial";
             WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);

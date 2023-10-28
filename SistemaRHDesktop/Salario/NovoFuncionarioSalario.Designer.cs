@@ -125,7 +125,7 @@
             Controls.Add(cbFuncionarios);
             Controls.Add(label1);
             Name = "NovoFuncionarioSalario";
-            Text = "NovoFuncionarioSalario";
+            Text = "Novo salário";
             Load += NovoFuncionarioSalario_Load;
             ResumeLayout(false);
             PerformLayout();

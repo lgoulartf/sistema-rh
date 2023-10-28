@@ -41,7 +41,7 @@ namespace SistemaRHDesktop.Pagamentos
 
             var data = JsonConvert.DeserializeObject<List<Pagamento>>(content);
 
-            
+
             foreach (var item in data)
             {
                 var x = new ListViewItem(item.FuncionarioSalario.Funcionario.Nome);
@@ -54,7 +54,7 @@ namespace SistemaRHDesktop.Pagamentos
             }
 
             listView1.Update();
-            
+
         }
 
         private async void ListagemPagamentos_Load(object sender, EventArgs e)

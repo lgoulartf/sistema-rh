@@ -114,7 +114,7 @@
             Controls.Add(txtDescricao);
             Controls.Add(label1);
             Name = "EditarAliquota";
-            Text = "EditarAliquota";
+            Text = "Editar Alíquota";
             ResumeLayout(false);
             PerformLayout();
         }

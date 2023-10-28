@@ -40,7 +40,7 @@
             // 
             txtNome.Location = new Point(12, 106);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(100, 23);
+            txtNome.Size = new Size(198, 23);
             txtNome.TabIndex = 0;
             // 
             // label1
@@ -55,7 +55,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(118, 88);
+            label2.Location = new Point(216, 88);
             label2.Name = "label2";
             label2.Size = new Size(100, 15);
             label2.TabIndex = 3;
@@ -63,7 +63,7 @@
             // 
             // dtpDataAdmissao
             // 
-            dtpDataAdmissao.Location = new Point(118, 106);
+            dtpDataAdmissao.Location = new Point(216, 106);
             dtpDataAdmissao.Name = "dtpDataAdmissao";
             dtpDataAdmissao.Size = new Size(200, 23);
             dtpDataAdmissao.TabIndex = 4;
@@ -80,7 +80,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(377, 188);
+            button1.Location = new Point(341, 152);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 6;
@@ -88,19 +88,19 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // CadastroFuncionario
+            // NovoFuncionario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(464, 223);
+            ClientSize = new Size(428, 187);
             Controls.Add(button1);
             Controls.Add(label3);
             Controls.Add(dtpDataAdmissao);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtNome);
-            Name = "CadastroFuncionario";
-            Text = "CadastroFuncionario";
+            Name = "NovoFuncionario";
+            Text = "Cadastro de funcionário";
             ResumeLayout(false);
             PerformLayout();
         }

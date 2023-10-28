@@ -111,7 +111,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(494, 160);
             Controls.Add(txtSalario);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -121,7 +121,7 @@
             Controls.Add(dtpVigenteEm);
             Controls.Add(label1);
             Name = "EditarFuncionarioSalario";
-            Text = "EditarFuncionarioSalario";
+            Text = "Editar salário";
             ResumeLayout(false);
             PerformLayout();
         }

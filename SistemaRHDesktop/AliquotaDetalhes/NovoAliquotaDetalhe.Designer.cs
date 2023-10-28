@@ -126,7 +126,7 @@
             Controls.Add(txtBaseCalculo);
             Controls.Add(label1);
             Name = "NovoAliquotaDetalhe";
-            Text = "NovoAliquotaDetalhe";
+            Text = "Novo detalhe de alíquota";
             Load += NovoAliquotaDetalhe_Load;
             ResumeLayout(false);
             PerformLayout();

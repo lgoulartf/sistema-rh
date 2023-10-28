@@ -48,7 +48,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(254, 142);
+            btnSalvar.Location = new Point(338, 121);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
             btnSalvar.TabIndex = 1;
@@ -60,12 +60,12 @@
             // 
             txtNome.Location = new Point(12, 81);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(100, 23);
+            txtNome.Size = new Size(184, 23);
             txtNome.TabIndex = 2;
             // 
             // dtpDataAdmissao
             // 
-            dtpDataAdmissao.Location = new Point(118, 81);
+            dtpDataAdmissao.Location = new Point(202, 81);
             dtpDataAdmissao.Name = "dtpDataAdmissao";
             dtpDataAdmissao.Size = new Size(211, 23);
             dtpDataAdmissao.TabIndex = 3;
@@ -82,7 +82,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(118, 63);
+            label2.Location = new Point(202, 63);
             label2.Name = "label2";
             label2.Size = new Size(102, 15);
             label2.TabIndex = 6;
@@ -92,7 +92,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(341, 177);
+            ClientSize = new Size(425, 156);
             Controls.Add(label2);
             Controls.Add(label3);
             Controls.Add(dtpDataAdmissao);
@@ -100,7 +100,7 @@
             Controls.Add(btnSalvar);
             Controls.Add(label1);
             Name = "EditarFuncionario";
-            Text = "EditarFuncionario";
+            Text = "Editar funcionário";
             ResumeLayout(false);
             PerformLayout();
         }

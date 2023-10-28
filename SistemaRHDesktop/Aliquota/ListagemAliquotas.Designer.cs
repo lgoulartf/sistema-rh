@@ -57,6 +57,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Enabled = false;
             btnEditar.Location = new Point(542, 29);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
@@ -76,6 +77,7 @@
             // 
             // btnExcluir
             // 
+            btnExcluir.Enabled = false;
             btnExcluir.Location = new Point(623, 29);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(75, 23);
@@ -95,7 +97,7 @@
             Controls.Add(btnExcluir);
             Controls.Add(label1);
             Name = "ListagemAliquotas";
-            Text = "ListagemAliquotas";
+            Text = "Listagem das alíquotas";
             Load += ListagemAliquotas_Load;
             ResumeLayout(false);
             PerformLayout();

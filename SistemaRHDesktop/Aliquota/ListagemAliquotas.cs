@@ -89,6 +89,12 @@ namespace SistemaRHDesktop.Aliquota
             if (listView1.SelectedItems.Count == 1)
             {
                 AliquotaSelecionada = listView1.SelectedItems[0].Tag as SistemaRH.Models.Aliquota;
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+            } else
+            {
+                btnEditar.Enabled = false;
+                btnExcluir.Enabled = false;
             }
         }
 
