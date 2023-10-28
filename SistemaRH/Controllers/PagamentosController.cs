@@ -2,6 +2,7 @@
 using SistemaRH.Models;
 using SistemaRH.PDF;
 using SistemaRH.Tabelas;
+using System.Security.Cryptography.Xml;
 
 namespace SistemaRH.Controllers
 {
@@ -52,7 +53,7 @@ namespace SistemaRH.Controllers
 
         private List<Pagamento> CalculaFolhaPagamento(DateOnly dataPagamento, DateOnly dataReferencia)
         {
-            List<FuncionarioSalario> funcionarios = funcionarioSalarioTb.GetFuncionarioSalarios(dataPagamento);
+            List<FuncionarioSalario> funcionarios = funcionarioSalarioTb.GetFuncionarioSalarios(dataReferencia);
 
             List<AliquotaDetalhe> aliquotas = aliquotaDetalheTb.GetAliquotaDetalhes(dataPagamento.Year);
 
@@ -60,6 +61,17 @@ namespace SistemaRH.Controllers
 
             foreach (var funcionarioSalario in funcionarios)
             {
+                var qtdSalarios = funcionarios.Count(x => x.IdFuncionario == funcionarioSalario.IdFuncionario);
+
+                if (qtdSalarios > 1)
+                {
+                    var fs = funcionarios.Where(x => x.IdFuncionario == funcionarioSalario.IdFuncionario);
+                    var maxFs = fs.MaxBy(x => x.VigenteEm);
+
+                    if (maxFs.Id != funcionarioSalario.Id)
+                        continue;
+                }
+
                 Pagamento pagamento = new()
                 {
                     SalarioLiquido = funcionarioSalario.Salario,
@@ -68,11 +80,13 @@ namespace SistemaRH.Controllers
                     IdFuncionarioSalario = funcionarioSalario.Id,
                 };
 
-                foreach (var aliquotaDetalhes in aliquotas.Where(x => x.Aliquota.AnoVigencia == DateTime.Now.Year && x.Aliquota.Desconta == true))
+                bool descontado = false;
+                foreach (var aliquotaDetalhes in aliquotas.OrderBy(x => x.BaseCalculo).Where(x => x.Aliquota.AnoVigencia == DateTime.Now.Year && x.Aliquota.Desconta == true))
                 {
-                    if (funcionarioSalario.Salario <= aliquotaDetalhes.BaseCalculo)
+                    if (funcionarioSalario.Salario <= aliquotaDetalhes.BaseCalculo && descontado == false)
                     {
                         pagamento.SalarioLiquido -= pagamento.SalarioLiquido * (decimal)aliquotaDetalhes.Porcentagem / 100;
+                        descontado = true;
                     }
                 }
 
