@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Sources\sistema-rh\SistemaRHDesktop\Properties\PublishProfiles\ClickOnceProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="AliquotaDetalhes\EditarAliquotaDetalhe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AliquotaDetalhes\ListagemAliquotaDetalhes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AliquotaDetalhes\NovoAliquotaDetalhe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Aliquota\EditarAliquota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Aliquota\ListagemAliquotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Aliquota\NovoAliquota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Pagamentos\ListagemPagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Salario\EditarFuncionarioSalario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Salario\ListagemFuncionarioSalarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Funcionario\NovoFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Funcionario\EditarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Salario\NovoFuncionarioSalario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TelaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Funcionario\ListagemFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
