@@ -90,5 +90,22 @@ namespace SistemaRHDesktop.Pagamentos
                 await AtualizaLista();
             }
         }
+
+        private async void btnGerarPdf_Click(object sender, EventArgs e)
+        {
+            var api = new Api();
+
+            try
+            {
+                await api.DownloadData($"api/Pagamento/GerarPDF/{dtpReferencia.Value.ToString("o")}");
+
+                MessageBox.Show("PDF Gerado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Falha!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

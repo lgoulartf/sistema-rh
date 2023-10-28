@@ -1,23 +1,26 @@
-﻿using System.Text;
+﻿using System.Net;
+using System.Security.Policy;
+using System.Text;
 
 namespace SistemaRHDesktop
 {
     public class Api
     {
         HttpClient Client;
+        string Url = "http://localhost:8081";
+
         public Api()
         {
-            string url = "http://localhost:8081";
             string ambiente = Environment.GetEnvironmentVariable("ambiente", EnvironmentVariableTarget.Machine);
             
             if (ambiente == "dev")
             {
-                url = "http://localhost:5227";
+                Url = "http://localhost:5227";
             }
 
             Client = new HttpClient
             {
-                BaseAddress = new Uri(url),
+                BaseAddress = new Uri(Url),
             };
 
             Client.DefaultRequestHeaders.Accept.Clear();
@@ -31,6 +34,14 @@ namespace SistemaRHDesktop
             var data = await result.Content.ReadAsStringAsync();
 
             return data;
+        }
+
+        public async Task DownloadData(string rota)
+        {
+            var response = await Client.GetAsync(rota);
+            var content = await response.Content.ReadAsByteArrayAsync();
+
+            File.WriteAllBytes("./folha-pagamento.pdf", content);
         }
 
         public async Task<string> Post(string rota, string json)

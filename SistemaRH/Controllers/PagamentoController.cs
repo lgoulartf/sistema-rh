@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using iTextSharp.text.pdf.qrcode;
+using Microsoft.AspNetCore.Mvc;
 using SistemaRH.Models;
+using SistemaRH.PDF;
 using SistemaRH.Tabelas;
 
 namespace SistemaRH.Controllers
@@ -31,6 +33,15 @@ namespace SistemaRH.Controllers
             var pagamentos = pagamentoTb.GetPagamentos(referencia);
 
             return Ok(pagamentos);
+        }
+
+        [HttpGet("GerarPDF/{referencia}")]
+        public async Task<IActionResult> GerarPdf(DateTime referencia)
+        {
+            var pagamentos = pagamentoTb.GetPagamentosDT(referencia);
+            var byteArray = GerarPDF.Gerar(pagamentos);
+
+            return File(byteArray, "application/pdf", "example.pdf");
         }
 
         [HttpPost]

@@ -33,6 +33,7 @@
             button1 = new Button();
             label2 = new Label();
             dtpReferencia = new DateTimePicker();
+            btnGerarPdf = new Button();
             SuspendLayout();
             // 
             // label1
@@ -49,13 +50,13 @@
             // 
             listView1.Location = new Point(12, 52);
             listView1.Name = "listView1";
-            listView1.Size = new Size(776, 386);
+            listView1.Size = new Size(989, 386);
             listView1.TabIndex = 1;
             listView1.UseCompatibleStateImageBehavior = false;
             // 
             // button1
             // 
-            button1.Location = new Point(713, 23);
+            button1.Location = new Point(847, 23);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 2;
@@ -66,7 +67,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(452, 27);
+            label2.Location = new Point(586, 27);
             label2.Name = "label2";
             label2.Size = new Size(62, 15);
             label2.TabIndex = 4;
@@ -74,16 +75,27 @@
             // 
             // dtpReferencia
             // 
-            dtpReferencia.Location = new Point(520, 23);
+            dtpReferencia.Location = new Point(654, 23);
             dtpReferencia.Name = "dtpReferencia";
             dtpReferencia.Size = new Size(187, 23);
             dtpReferencia.TabIndex = 5;
+            // 
+            // btnGerarPdf
+            // 
+            btnGerarPdf.Location = new Point(928, 23);
+            btnGerarPdf.Name = "btnGerarPdf";
+            btnGerarPdf.Size = new Size(75, 23);
+            btnGerarPdf.TabIndex = 6;
+            btnGerarPdf.Text = "Gerar PDF";
+            btnGerarPdf.UseVisualStyleBackColor = true;
+            btnGerarPdf.Click += btnGerarPdf_Click;
             // 
             // ListagemPagamentos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1013, 450);
+            Controls.Add(btnGerarPdf);
             Controls.Add(dtpReferencia);
             Controls.Add(label2);
             Controls.Add(button1);
@@ -103,5 +115,6 @@
         private Button button1;
         private Label label2;
         private DateTimePicker dtpReferencia;
+        private Button btnGerarPdf;
     }
 }

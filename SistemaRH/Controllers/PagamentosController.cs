@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaRH.Models;
+using SistemaRH.PDF;
 using SistemaRH.Tabelas;
 
 namespace SistemaRH.Controllers
@@ -38,6 +39,15 @@ namespace SistemaRH.Controllers
             }
             
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult GerarPdf()
+        {
+            var data = DateTime.Now;
+            var pagamentos = pagamentoTb.GetPagamentosDT(data);
+            var byteArray = GerarPDF.Gerar(pagamentos);
+
+            return File(byteArray, "application/pdf", $"folha-pagamento-{data.ToString("MM/yyyy")}.pdf");
         }
 
         private List<Pagamento> CalculaFolhaPagamento(DateOnly dataPagamento, DateOnly dataReferencia)

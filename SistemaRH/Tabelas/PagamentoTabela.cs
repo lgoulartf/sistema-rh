@@ -1,4 +1,5 @@
 using SistemaRH.Models;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace SistemaRH.Tabelas;
@@ -160,6 +161,66 @@ public class PagamentoTabela
             }
 
             return pagamentos;
+        }
+        catch (System.Exception err)
+        {
+            throw new Exception("Erro ao tentar recuperar dados");
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+
+    internal DataTable GetPagamentosDT(DateTime referencia)
+    {
+
+        DataTable dt = new DataTable();
+        dt.Columns.Add("Funcionário", typeof(string));
+        dt.Columns.Add("Salário bruto", typeof(decimal));
+        dt.Columns.Add("Salário líquido", typeof(decimal));
+        dt.Columns.Add("Data de referência", typeof(DateOnly));
+        dt.Columns.Add("Data de pagamento", typeof(DateOnly));
+
+        try
+        {
+            connection.Open();
+
+            SqlCommand sqlCommand = new(@$"select P.*, F.nome, FS.salario from tbPagamentos P join tbFuncionarioSalario FS on P.idFuncionarioSalario = FS.id join tbFuncionarios F on F.id = FS.idFuncionario where MONTH(P.dataReferencia) = @mes and YEAR(P.dataReferencia) = @ano", connection);
+
+            sqlCommand.Parameters.AddWithValue("@mes", referencia.Month);
+            sqlCommand.Parameters.AddWithValue("@ano", referencia.Year);
+
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+
+            List<Pagamento> pagamentos = new();
+
+            while (reader.Read())
+            {
+
+                
+                var pagamento = new Pagamento
+                {
+                    Id = Convert.ToInt32(reader[0]),
+                    DataPagamento = DateOnly.FromDateTime(Convert.ToDateTime(reader[1])),
+                    DataReferencia = DateOnly.FromDateTime(Convert.ToDateTime(reader[2])),
+                    IdFuncionarioSalario = Convert.ToInt32(reader[3]),
+                    SalarioLiquido = Convert.ToDecimal(reader[4]),
+                    FuncionarioSalario = new FuncionarioSalario
+                    {
+                        Funcionario = new Funcionario
+                        {
+                            Nome = reader[5].ToString()
+                        },
+                        Salario = Convert.ToDecimal(reader[6]),
+                    }
+                };
+
+                // Add rows to the table
+                dt.Rows.Add(pagamento.FuncionarioSalario.Funcionario.Nome, pagamento.FuncionarioSalario.Salario, pagamento.SalarioLiquido, pagamento.DataReferencia, pagamento.DataPagamento);
+            }
+
+            return dt;
         }
         catch (System.Exception err)
         {
